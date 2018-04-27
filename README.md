@@ -16,7 +16,7 @@ docker build --tag=helloDocker .
 Run Docker container with
 
 ```
-docker run -p 18080:8080 -t -i myapp
+docker run -p 18080:8080 -t -i helloDocker
 ```
 
 To check that your application is running enter url `http://localhost:18080/hello-world`
