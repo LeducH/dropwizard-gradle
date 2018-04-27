@@ -1,0 +1,7 @@
+logging:
+  level: INFO
+  loggers:
+    de.Dockerwizard: DEBUG
+helloWorldParameter:
+    template: Hello, %s!
+    defaultName: Stranger

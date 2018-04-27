@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'maven'
+    id 'com.github.johnrengelman.shadow' version '2.0.3'
+    id 'application'
+
+}
+
+group = 'de.Dockerwizard'
+version = '1.0'
+
+description = """Dockerwizard"""
+mainClassName = 'de.Dockerwizard.DockerwizardApplication'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+    maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'io.dropwizard', name: 'dropwizard-core', version: '1.3.1'
+    compile group: 'com.google.inject', name: 'guice', version: '4.0'
+    compile group: 'com.google.guava', name: 'guava', version: '23.1-jre'
+}
+// Configure the shadow jar task
+shadowJar {
+    mergeServiceFiles()
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+    archiveName = "Dockerwizard.${extension}"
+}
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
