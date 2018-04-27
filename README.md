@@ -1,5 +1,7 @@
 # Dockerwizard
 
+This is a small example of Dropwizard build with Gradle and using google Guice as dependency injection.
+
 How to start the Dockerwizard application
 ---
 
